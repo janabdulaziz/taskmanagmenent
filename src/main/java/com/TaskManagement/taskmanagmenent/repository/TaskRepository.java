@@ -1,0 +1,12 @@
+package com.TaskManagement.taskmanagmenent.repository;
+
+import com.TaskManagement.taskmanagmenent.model.Task;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+
+public interface TaskRepository extends JpaRepository<Task,Integer> {
+
+    List<Task> findByTitleContaining(String title);
+    List<Task> findByCompleted(boolean completed);
+}
