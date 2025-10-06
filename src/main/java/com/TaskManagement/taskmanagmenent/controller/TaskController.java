@@ -1,18 +1,13 @@
 package com.TaskManagement.taskmanagmenent.controller;
-
 import com.TaskManagement.taskmanagmenent.dto.TaskDTO;
 import com.TaskManagement.taskmanagmenent.model.Task;
 import com.TaskManagement.taskmanagmenent.service.TaskService;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.data.domain.Page;
-
-
 import java.util.List;
-
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/tasks")
-
-
 public class TaskController {
     private final TaskService taskService;
 
@@ -50,6 +45,7 @@ public class TaskController {
 
 
 
+
     @GetMapping("/paged")
     public Page<Task> getPagedTasks(@RequestParam int page, @RequestParam int size) {
         return taskService.TasksWithPagination(page, size);
@@ -60,5 +56,7 @@ public class TaskController {
         return taskService.findBycompleted(completed);
 
     }
+
+
 
 }

@@ -29,7 +29,7 @@ public class TaskService {
     }
 
     public List<Task> searchByTitle(String title) {
-        return taskRepository.findByTitleContaining(title);
+        return taskRepository.findByTitleContainingIgnoreCase(title);
     }
 
 
